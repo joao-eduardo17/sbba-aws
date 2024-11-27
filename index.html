@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de dados</title>
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>GRAVADORA</h1>
+        <div class="main cadastro">
+            <h3>Cadastro de CDs</h3>
+            <form action="/cadastrar" method="POST">
+                <input type="text" name="nome" placeholder="nome do cd" required>
+                <input type="text" name="tipo" placeholder="tipo" required>
+                <input type="text" name="preco" placeholder="preço" required>
+                <button type="submit">CADASTRAR</button>
+            </form>
+        </div>        
+
+        <br><br>
+
+        <div class="main lista">
+            <h3>Listagem de CDs</h3>
+            <table>
+                <thead>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Tipo
+                    </th>
+                    <th>
+                        Preço
+                    </th>
+                </thead>
+                <tbody id="tablebody">
+                </tbody>
+            </table>
+        </div>
+
+        <br><br>
+
+        <div class="main altera">
+            <h3>Alteração de CDs</h3>
+            <form action="/alterar" method="POST">
+                <input type="hidden" name="id" placeholder="ID do CD" required>
+                <input type="text" name="nome" placeholder="nome do cd">
+                <input type="text" name="tipo" placeholder="tipo">
+                <input type="text" name="preco" placeholder="preço">
+                <button type="submit">ALTERAR</button>
+            </form>
+        </div>
+        
+        
+        <br><br>
+        
+        <div class="main deleta">
+            <h3>DELETE DE CDs</h3>
+            <form action="/deletar" method="POST">
+                <input type="text" name="nome" placeholder="nome do cd" required>
+                <button type="submit">DELETAR</button>
+            </form>
+        </div>
+        
+    </main>
+
+    <script>
+        fetch("http://???:3000").then(res=>res.json()).then(json=>{
+            console.log(json)
+            json.forEach((pep)=>{
+            let tbody = document.getElementById("tablebody")
+                let row = document.createElement("tr");
+                let c1 = document.createElement("td");
+                let c2 = document.createElement("td");
+                let c3 = document.createElement("td");
+                c1.innerText = pep.name
+                c2.innerText = pep.idade
+                c3.innerText = pep.cpf
+                tbody.appendChild(row)
+                row.append(c1, c2, c3)
+        })
+        
+        })
+    </script>
+</body>
+</html>
