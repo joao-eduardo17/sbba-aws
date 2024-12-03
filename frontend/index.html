@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de dados</title>
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>GRAVADORA</h1>
+        <div class="main cadastro">
+            <div id="inputs">
+                <input type="text" placeholder="ID">
+                <input type="text" placeholder="Nome" required>
+                <input type="text" placeholder="Gênero" required>
+                <input type="text" placeholder="Preço" required>
+            </div>
+
+            <br>
+
+            <div>
+                <button id="cadastro">Cadastrar</button>
+                <button id="altera">Alterar</button>
+                <button id="deleta">Deletar</button>
+            </div>
+        </div>        
+
+        <br><br>
+
+        <div class="main lista">
+            <h2>Listagem de CDs</h2>
+            <table id="tabela">
+                <thead>
+                    <th>Nome</th>
+                    <th>Gênero</th>
+                    <th>Preço</th>
+                </thead>
+            </table>
+        </div>
+        
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>

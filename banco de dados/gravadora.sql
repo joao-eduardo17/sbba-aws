@@ -1,0 +1,10 @@
+CREATE DATABASE gravadora;
+
+USE gravadora;
+
+CREATE TABLE cds(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(70) NOT NULL,
+    genero VARCHAR(35) NOT NULL,
+    preco DECIMAL(6,2) NOT NULL
+);
